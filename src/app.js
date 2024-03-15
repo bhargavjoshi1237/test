@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.get('/:key', (req, res) => {
+app.get('/x/:key', (req, res) => {
   const { key } = req.params;
 
   // Fetch the value from Redis
@@ -30,6 +30,11 @@ app.get('/:key', (req, res) => {
       }
   });
 });
+
+app.get('/', (req, res) => {
+
+ res.json("Helllo")   
+  });
 
 app.use('/api/v1', api);
 
